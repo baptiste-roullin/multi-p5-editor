@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import p5 from 'p5'
 import type P5 from 'p5'
+
 import { onMounted, onUnmounted } from 'vue'
 
 
@@ -35,8 +36,7 @@ onMounted(() => {
   new p5(sketch)
 })
 
-onUnmounted(() => {
-})
+
 </script>
 
 <template>
