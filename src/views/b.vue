@@ -1,21 +1,20 @@
 <script setup lang="ts">
-import p5 from 'p5'
-import type P5 from 'p5'
+import p6 from '../p6'
 import { onMounted } from 'vue'
 
 import { config } from '../utils'
 
 onMounted(() => {
-  const sketch = (p5: P5) => {
-    config(p5)
+  const sketch = (p6: p6) => {
+    config(p6)
 
-    p5.draw = function () {
-      p5.background('red')
+    p6.draw = function () {
+      p6.background('red')
       const dimension = Math.min(
         window.innerWidth,
         window.innerHeight,
       )
-      p5.ellipse(
+      p6.ellipse(
         window.innerWidth / 2,
         window.innerHeight / 2,
         (Math.sin(Date.now() / 1000) + dimension / 2 / 5) *
@@ -25,7 +24,7 @@ onMounted(() => {
     }
 
   }
-  new p5(sketch)
+  new p6(sketch)
 })
 
 
