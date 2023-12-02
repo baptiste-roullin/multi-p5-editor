@@ -15,7 +15,7 @@ export function config(p5: p5) {
 
 }
 
-export function star(p5, outerRadius, innerRadius, npoints, x = 0, y = 1) {
+export function star(p5: p5 | p5.Graphics, outerRadius, innerRadius, npoints, x = 0, y = 0) {
   let angle = p5.TWO_PI / npoints
   let halfAngle = angle / 2.0
 
@@ -32,3 +32,21 @@ export function star(p5, outerRadius, innerRadius, npoints, x = 0, y = 1) {
 }
 
 
+
+export function grid(p5: p5, callback, cols, rows = cols) {
+
+  p5.background(255)
+  const itemSize = width / cols
+
+
+  p5.translate(itemSize / 2, itemSize / 2)
+
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      let buffer = p5.createGraphics(itemSize, itemSize)
+      callback(buffer, 300,)
+      p5.image(buffer, itemSize * j, itemSize * i)
+
+    }
+  }
+}

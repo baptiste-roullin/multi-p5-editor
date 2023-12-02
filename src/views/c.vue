@@ -30,6 +30,8 @@ onMounted(() => {
         10,
         (Math.sin(Date.now() / 200) + dimension / 2 / 5) * 10,
       )
+      p5.noLoop()
+
     }
 
   }

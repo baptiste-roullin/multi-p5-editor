@@ -18,10 +18,12 @@ onMounted(() => {
 			for (let i = 0; i < width; i++) {
 				angle += .03
 				sig = p5.map(p5.atan(angle), -p5.HALF_PI, p5.HALF_PI, 0, width)
-				console.log(p5.atan(angle), sig)
+				//console.log(p5.atan(angle), sig)
 
 				p5.circle(width / 2, width / 2, (p5.round(sig)))
 			}
+			p5.noLoop()
+
 		}
 	}
 	new p5(sketch)

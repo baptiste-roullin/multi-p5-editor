@@ -1,6 +1,6 @@
 import p5, { type RENDERER, type p5InstanceExtensions } from 'p5'
 
-export class p6 extends p5 {
+export default class p6 extends p5 {
 	vertices(vertices, settings) {
 
 		this.beginShape()
