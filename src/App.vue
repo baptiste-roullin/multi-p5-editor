@@ -6,14 +6,12 @@ import files from './files.json'
 
 <template>
   <header>
-    <div class="wrapper">
 
-      <nav>
-        <div v-for="(item, index) in files" :key="index">
-          <RouterLink :to="item">{{ item }}</RouterLink>
-        </div>
-      </nav>
-    </div>
+    <nav>
+      <div v-for="(item, index) in files" :key="index">
+        <RouterLink :to="item">{{ item }}</RouterLink>
+      </div>
+    </nav>
   </header>
 
   <RouterView />
@@ -39,13 +37,14 @@ body {
 
 nav {
   width: 100%;
-  font-size: 12px;
+  font-size: 14px;
   text-align: center;
   margin-top: 2rem;
 }
 
 nav a.router-link-exact-active {
   color: var(--color-text);
+  font-weight: bold;
 }
 
 nav a.router-link-exact-active:hover {
@@ -67,6 +66,7 @@ nav a:first-of-type {
     display: flex;
     place-items: center;
     padding-right: calc(var(--section-gap) / 2);
+    width: 10vw;
   }
 
   .logo {
@@ -80,12 +80,13 @@ nav a:first-of-type {
   }
 
   nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
 
     padding: 1rem 0;
-    margin-top: 1rem;
   }
 }
 </style>

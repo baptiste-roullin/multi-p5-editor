@@ -3,14 +3,20 @@ import p5 from 'p5'
 export const width = window.innerWidth
 export const height = window.innerHeight
 
-export function config(p5: p5) {
+export function config(p5: p5, noLoop = false) {
   p5.windowResized = () => {
-    p5.resizeCanvas(window.innerWidth - 100, window.innerHeight - 100)
+    const width = window.innerWidth - (window.innerWidth / 10)
+    const height = window.innerHeight - (window.innerHeight / 10)
+
+    p5.resizeCanvas(width, height)
   }
 
   p5.setup = () => {
     p5.createCanvas(width, window.innerHeight, undefined, document.querySelector("canvas")!)
     p5.frameRate(60)
+    if (noLoop) {
+      p5.noLoop()
+    }
   }
 
 }
@@ -45,7 +51,7 @@ export function grid(p5: p5, callback, cols, rows = cols) {
     for (let j = 0; j < cols; j++) {
       let buffer = p5.createGraphics(itemSize, itemSize)
       callback(buffer, 300,)
-      p5.image(buffer, itemSize * j, itemSize * i)
+      p5.image(buffer, itemSize * j, itemSize * i) // what. fix item size
 
     }
   }

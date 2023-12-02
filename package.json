@@ -1,9 +1,9 @@
 {
-  "name": "p5",
-  "version": "0.0.0",
+  "name": "p5-vue",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
-    "files": "bash files.sh",
+    "files": "bash new_files.sh",
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
@@ -13,14 +13,12 @@
   "dependencies": {
     "@types/p5": "1.7.0",
     "cross-env": "^7.0.3",
-    "js-yaml": "^4.1.0",
     "p5": "1.7.0",
     "vue": "^3.3.4",
     "vue-router": "^4.2.5"
   },
   "devDependencies": {
-    "@tsconfig/node18": "^18.2.2",
-    "@types/node": "^18.18.5",
+    "@types/node": "^20.1.0",
     "@vitejs/plugin-vue": "^4.4.0",
     "@vue/tsconfig": "^0.4.0",
     "npm-run-all2": "^6.1.1",
