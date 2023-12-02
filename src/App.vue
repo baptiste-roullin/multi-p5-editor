@@ -2,13 +2,14 @@
 import { RouterLink, RouterView } from 'vue-router'
 import files from './files.json'
 
+const cleanedList = files.filter(el => el !== "")
 </script>
 
 <template>
   <header>
 
     <nav>
-      <div v-for="(item, index) in files" :key="index">
+      <div v-for="(item, index) in cleanedList" :key="index">
         <RouterLink :to="item">{{ item }}</RouterLink>
       </div>
     </nav>
