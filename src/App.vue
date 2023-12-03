@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import files from './files.json'
+import { cleanedList } from './utils'
 
-const cleanedList = files.filter(el => el !== "")
 </script>
 
 <template>

@@ -1,18 +1,23 @@
 import p5 from 'p5'
 
+import files from './files.json'
+
+export const cleanedList = files.filter(el => el !== "")
+
 export const width = window.innerWidth
 export const height = window.innerHeight
+const usefulWidth = window.innerWidth - (window.innerWidth / 10)
+const userfulHeight = window.innerHeight - (window.innerHeight / 10)
 
 export function config(p5: p5, noLoop = false) {
   p5.windowResized = () => {
-    const width = window.innerWidth - (window.innerWidth / 10)
-    const height = window.innerHeight - (window.innerHeight / 10)
 
-    p5.resizeCanvas(width, height)
+
+    p5.resizeCanvas(usefulWidth, userfulHeight)
   }
 
   p5.setup = () => {
-    p5.createCanvas(width, window.innerHeight, undefined, document.querySelector("canvas")!)
+    p5.createCanvas(usefulWidth, userfulHeight, undefined, document.querySelector("canvas")!)
     p5.frameRate(60)
     if (noLoop) {
       p5.noLoop()
@@ -38,20 +43,35 @@ export function star(p5: p5 | p5.Graphics, outerRadius, innerRadius, npoints, x 
 }
 
 
-
-export function grid(p5: p5, callback, cols, rows = cols) {
+export function grid(p5: p5, callback: (p5: p5 | p5.Graphics, itemSize: number) => void, cols = 3, itemSize) {
 
   p5.background(255)
-  const itemSize = width / cols
+  if (!itemSize && cols) {
+    console.log(cols)
 
+    var rows = cols
+    var itemWidth = usefulWidth / cols
+    var itemHeight = itemWidth
 
-  p5.translate(itemSize / 2, itemSize / 2)
+  }
+  else if (itemSize && !cols) {
+    // Layout of grid determined automatically by size of item and window.
+    itemWidth = itemSize
+    itemHeight = itemSize
+    rows = Math.trunc(userfulHeight / itemSize)
+    cols = Math.trunc(usefulWidth / itemSize)
+  }
+  else {
+    itemSize = 300
+  }
+
+  p5.translate(itemWidth / 2, itemWidth / 2)
 
   for (let i = 0; i < rows; i++) {
     for (let j = 0; j < cols; j++) {
-      let buffer = p5.createGraphics(itemSize, itemSize)
-      callback(buffer, 300,)
-      p5.image(buffer, itemSize * j, itemSize * i) // what. fix item size
+      let buffer = p5.createGraphics(itemWidth, itemHeight)
+      callback(buffer, itemWidth)
+      p5.image(buffer, itemWidth * j, itemHeight * i)
 
     }
   }

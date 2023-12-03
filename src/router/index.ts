@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import files from '../files.json'
+import { cleanedList } from '../utils'
 
 
 //const HomeView = import(`../views/${}.vue`)
 
-const views = files.map((file, index) => {
+const views = cleanedList.map((file, index) => {
   return {
     path: '/' + file,
     alias: (index === 0 ? '/' : '/' + file),
