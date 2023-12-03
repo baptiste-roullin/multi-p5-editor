@@ -13,5 +13,10 @@ chmod u+x new_files.sh
 4. Run Vite
 5. You can use the snippet "p5"
 
+# Warning
+
+Work in progress. Especially, the live-reloading may be not cross-platform.
+
+Known limit: deletion of files is detected only if the deletion in done in the explorer sidebar in VS Code.
 
 ![](screenshot.png)
