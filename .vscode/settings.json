@@ -1,0 +1,14 @@
+{
+	"filewatcher.commands": [
+		{
+			"match": "\\.vue",
+			"cmd": "bash ${workspaceRoot}/new_files.sh",
+			"event": "onFileCreate"
+		},
+			{
+			"match": "\\.vue",
+			"cmd": "bash ${workspaceRoot}/new_files.sh",
+			"event": "onFolderDelete"
+		}
+	]
+}
