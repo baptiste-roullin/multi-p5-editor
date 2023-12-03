@@ -17,17 +17,9 @@ function mandala(p5: p5 | p5.Graphics, itemSize: number) {
 	const randCol = Math.trunc(p5.random(225, 255))
 	const shadeRatio = randCol / steps
 	const rotationRatio = p5.random(90, 200) / steps
-	const pointCount = p5.random(5, 15)
+	const pointCount = Math.trunc(p5.random(5, 15))
 
-	/*const innerRadius = 329.6833086115345
-	const steps = 3
-	const innerRadiusRatio = 109.89443620384485
-	const outerRadiusRatio = 319.5
-	const randCol = 251
-	const shadeRatio = 83.66666666666667
-	const rotationRatio = 47.23244606710108
-	const pointCount = 11.051685797033752
-*/
+
 
 
 
@@ -62,7 +54,7 @@ onMounted(() => {
 		config(p5, true)
 
 		p5.draw = () => {
-			grid(p5, mandala, 2, undefined)
+			grid(p5, mandala, undefined, 300)
 		}
 	}
 	new p5(sketch)

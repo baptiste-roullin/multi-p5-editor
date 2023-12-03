@@ -11,8 +11,6 @@ const userfulHeight = window.innerHeight - (window.innerHeight / 10)
 
 export function config(p5: p5, noLoop = false) {
   p5.windowResized = () => {
-
-
     p5.resizeCanvas(usefulWidth, userfulHeight)
   }
 
@@ -26,8 +24,8 @@ export function config(p5: p5, noLoop = false) {
 
 }
 
-export function star(p5: p5 | p5.Graphics, outerRadius, innerRadius, npoints, x = 0, y = 0) {
-  let angle = p5.TWO_PI / npoints
+export function star(p5: p5 | p5.Graphics, outerRadius, innerRadius, pointCount, x = 0, y = 0) {
+  let angle = p5.TWO_PI / pointCount
   let halfAngle = angle / 2.0
 
   p5.beginShape()
@@ -43,12 +41,11 @@ export function star(p5: p5 | p5.Graphics, outerRadius, innerRadius, npoints, x 
 }
 
 
-export function grid(p5: p5, callback: (p5: p5 | p5.Graphics, itemSize: number) => void, cols = 3, itemSize) {
+export function grid(p5: p5, callback: (p5: p5 | p5.Graphics, itemSize: number) => void, cols, itemSize) {
 
   p5.background(255)
   if (!itemSize && cols) {
     console.log(cols)
-
     var rows = cols
     var itemWidth = usefulWidth / cols
     var itemHeight = itemWidth
@@ -62,7 +59,11 @@ export function grid(p5: p5, callback: (p5: p5 | p5.Graphics, itemSize: number) 
     cols = Math.trunc(usefulWidth / itemSize)
   }
   else {
-    itemSize = 300
+
+    itemWidth = 300
+    itemHeight = 300
+    rows = Math.trunc(userfulHeight / itemSize)
+    cols = Math.trunc(usefulWidth / itemSize)
   }
 
   p5.translate(itemWidth / 2, itemWidth / 2)
