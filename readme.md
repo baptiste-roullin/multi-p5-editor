@@ -6,12 +6,12 @@ Motivation: There are other boilerplates out there, but they necessitate to dupl
 
 
 # Setup
-1. Clone
-2. `npm install`
+1. Clone.
+2. `npm install`.
 3. Accept to install the file watching extension VS Code is suggesting.
-chmod u+x new_files.sh
-4. Run Vite
-5. You can use the snippet "p5"
+4. `chmod u+x new_files.sh`.
+5. Run Vite.
+6. You can create .vue and use the snippet "p5".
 
 # Warning
 
