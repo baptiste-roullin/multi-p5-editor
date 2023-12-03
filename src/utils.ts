@@ -6,8 +6,8 @@ export const cleanedList = files.filter(el => el !== "")
 
 export const width = window.innerWidth
 export const height = window.innerHeight
-const usefulWidth = window.innerWidth - (window.innerWidth / 10)
-const userfulHeight = window.innerHeight - (window.innerHeight / 10)
+const usefulWidth = window.innerWidth * .85
+const userfulHeight = window.innerHeight * .90
 
 export function config(p5: p5, noLoop = false) {
   p5.windowResized = () => {

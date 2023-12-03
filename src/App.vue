@@ -55,6 +55,7 @@ nav a {
   display: inline-block;
   padding: 0 1rem;
   border-left: 1px solid var(--color-border);
+  word-wrap: anywhere;
 }
 
 nav a:first-of-type {
@@ -65,19 +66,15 @@ nav a:first-of-type {
   header {
     display: flex;
     place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-    width: 10vw;
+    //padding-right: calc(var(--section-gap) / 2);
+    width: 15vw;
+
   }
 
   .logo {
     margin: 0 2rem 0 0;
   }
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
 
   nav {
     display: flex;
@@ -86,7 +83,6 @@ nav a:first-of-type {
     text-align: left;
     font-size: 1.2rem;
 
-    padding: 1rem 0;
   }
 }
 </style>
