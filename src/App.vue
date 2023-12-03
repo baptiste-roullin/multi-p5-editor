@@ -8,7 +8,7 @@ import { cleanedList } from './utils'
   <header>
 
     <nav>
-      <div v-for="(item, index) in cleanedList" :key="index">
+      <div v-for="(item, index) in cleanedList" :key="index" :id="String(item)">
         <RouterLink :to="item">{{ item }}</RouterLink>
       </div>
     </nav>
@@ -40,11 +40,14 @@ nav {
   font-size: 14px;
   text-align: center;
   margin-top: 2rem;
+  height: 100%;
+  overflow-y: scroll;
 }
 
 nav a.router-link-exact-active {
   color: var(--color-text);
-  font-weight: bold;
+  font-weight: normal;
+  background: var(--vt-c-indigo);
 }
 
 nav a.router-link-exact-active:hover {
@@ -52,22 +55,26 @@ nav a.router-link-exact-active:hover {
 }
 
 nav a {
+  width: 100%;
+  font-weight: 600;
   display: inline-block;
-  padding: 0 1rem;
+  padding: 2rem 2.5rem;
+  ;
   border-left: 1px solid var(--color-border);
   word-wrap: anywhere;
+  border: var(--vt-c-divider-dark-1) 1px solid;
 }
 
-nav a:first-of-type {
+nav div:first-of-type a {
   border: 0;
 }
 
 @media (min-width: 1024px) {
   header {
     display: flex;
-    place-items: center;
+    place-items: start;
     //padding-right: calc(var(--section-gap) / 2);
-    width: 15vw;
+    width: 12vw;
 
   }
 
@@ -79,9 +86,11 @@ nav a:first-of-type {
   nav {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0rem;
     text-align: left;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    margin-top: 0rem;
+
 
   }
 }

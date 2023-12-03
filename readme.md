@@ -12,3 +12,6 @@ Motivation: There are other boilerplates out there, but they necessitate to dupl
 chmod u+x new_files.sh
 4. Run Vite
 5. You can use the snippet "p5"
+
+
+![](screenshot.png)
