@@ -9,23 +9,27 @@ export const height = window.innerHeight
 const usefulWidth = window.innerWidth * .88
 const userfulHeight = window.innerHeight * .90
 
+
+
 export function config(p5: p5, noLoop = false) {
   p5.windowResized = () => {
     p5.resizeCanvas(usefulWidth, userfulHeight)
   }
 
   p5.setup = () => {
+    if (window['draw'] || window['setup']) {
+      console.log('You launched a p5 sketch in instance mode, but another sketch in global has been detected. It could cause bugs and collisions between the too. ')
+    }
     p5.createCanvas(usefulWidth, userfulHeight, undefined, document.querySelector("canvas")!)
     p5.frameRate(60)
     if (noLoop) {
       p5.noLoop()
     }
   }
-
 }
 
-export function star(p5: p5 | p5.Graphics, outerRadius, innerRadius, pointCount, x = 0, y = 0) {
-  let angle = p5.TWO_PI / pointCount
+export function star(p5, outerRadius, innerRadius, pointCount, x = 0, y = 0) {
+  let angle = TWO_PI / pointCount
   let halfAngle = angle / 2.0
 
   p5.beginShape()
@@ -41,9 +45,9 @@ export function star(p5: p5 | p5.Graphics, outerRadius, innerRadius, pointCount,
 }
 
 
-export function grid(p5: p5, callback: (p5: p5 | p5.Graphics, itemSize: number) => void, cols, itemSize) {
+export function grid(callback: (p5: p5.Graphics, itemSize: number) => void, cols, itemSize) {
 
-  p5.background(255)
+  background(255)
   if (!itemSize && cols) {
     console.log(cols)
     var rows = cols
@@ -66,13 +70,13 @@ export function grid(p5: p5, callback: (p5: p5 | p5.Graphics, itemSize: number) 
     cols = Math.trunc(usefulWidth / itemSize)
   }
 
-  p5.translate(itemWidth / 2, itemWidth / 2)
+  translate(itemWidth / 2, itemWidth / 2)
 
   for (let i = 0; i < rows; i++) {
     for (let j = 0; j < cols; j++) {
-      let buffer = p5.createGraphics(itemWidth, itemHeight)
+      let buffer = createGraphics(itemWidth, itemHeight)
       callback(buffer, itemWidth)
-      p5.image(buffer, itemWidth * j, itemHeight * i)
+      image(buffer, itemWidth * j, itemHeight * i)
 
     }
   }

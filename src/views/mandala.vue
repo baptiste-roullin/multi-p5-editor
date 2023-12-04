@@ -3,8 +3,12 @@
 import { onMounted } from 'vue'
 import { config, grid, star } from '../utils'
 import p5 from 'p5'
+import type global from 'node_modules/@types/p5/global.d.ts'
 
-function mandala(p5: p5 | p5.Graphics, itemSize: number) {
+import globalInit from '@/globalUtils'
+
+
+function mandala(p5: p5.Graphics, itemSize: number) {
 	p5.rect(0, 0, itemSize, itemSize)
 
 	p5.push()
@@ -19,21 +23,17 @@ function mandala(p5: p5 | p5.Graphics, itemSize: number) {
 	const rotationRatio = p5.random(90, 200) / steps
 	const pointCount = Math.trunc(p5.random(5, 15))
 
-
-
-
-
-	console.table(
-		{
-			"innerRadius": innerRadius,
-			"steps": steps,
-			"innerRadiusRatio": innerRadiusRatio,
-			"outerRadiusRatio": outerRadiusRatio,
-			"randCol": randCol,
-			"shadeRatio": shadeRatio,
-			"rotationRatio": rotationRatio,
-			"pointCount": pointCount
-		})
+	/*	console.table(
+			{
+				"innerRadius": innerRadius,
+				"steps": steps,
+				"innerRadiusRatio": innerRadiusRatio,
+				"outerRadiusRatio": outerRadiusRatio,
+				"randCol": randCol,
+				"shadeRatio": shadeRatio,
+				"rotationRatio": rotationRatio,
+				"pointCount": pointCount
+			})*/
 	for (let k = 0; k < steps; k++) {
 
 		p5.fill(shadeRatio * k)
@@ -50,14 +50,13 @@ function mandala(p5: p5 | p5.Graphics, itemSize: number) {
 }
 
 onMounted(() => {
-	const sketch = (p5: p5) => {
-		config(p5, true)
 
-		p5.draw = () => {
-			grid(p5, mandala, undefined, 300)
-		}
+	function draw() {
+		grid(mandala, undefined, 300)
 	}
-	new p5(sketch)
+
+	globalInit(draw, false)
+
 })
 </script>
 
