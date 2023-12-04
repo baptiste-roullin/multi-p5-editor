@@ -13,9 +13,22 @@ Motivation: There are other boilerplates out there, but they necessitate to dupl
 5. Run Vite.
 6. You can create .vue and use the snippet "p5".
 
+# Global Mode
+
+If you prefer [global mode](https://github.com/processing/p5.js/wiki/Global-and-instance-mode) and its less verbose code, you can use it even with several sketches by executing `globalInit()`. It prevents namespace collisions (detected so far).
+
+```onMounted(() => {
+  function draw() {
+    background(220)
+    ellipse(50, 50, 80, 80)
+  }
+  globalInit(draw)
+})
+```
+
 # Warning
 
-Work in progress. Especially, the live-reloading may be not cross-platform.
+This a work in progress. Especially, the live-reloading may be not cross-platform.
 
 Known limit: deletion of files is detected only if the deletion in done in the explorer sidebar in VS Code.
 
