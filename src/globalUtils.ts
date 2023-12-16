@@ -14,7 +14,7 @@ export function globalInit(draw, isLoop = true) {
 
 	function setup() {
 		createCanvas(usefulWidth, usefulHeight, undefined, document.querySelector("canvas")!)
-		frameRate(60)
+		frameRate(10)
 
 
 		//saveCanvas(cnv, 'myCanvas.jpg');

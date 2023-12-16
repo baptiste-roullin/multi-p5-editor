@@ -182,7 +182,6 @@ export default async function truchet(params: Params) {
 		*/
 
 
-
 		//tileCanvas.fill(hue, saturation, light)
 		tileCanvas.endShape()
 
