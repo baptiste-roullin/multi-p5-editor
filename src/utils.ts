@@ -28,7 +28,7 @@ export function config(p5: p5, noLoop = false) {
   }
 }
 
-export function star(p5, outerRadius, innerRadius, pointCount, x = 0, y = 0) {
+export function star(p5: p5, outerRadius, innerRadius, pointCount, x = 0, y = 0) {
   let angle = TWO_PI / pointCount
   let halfAngle = angle / 2.0
 

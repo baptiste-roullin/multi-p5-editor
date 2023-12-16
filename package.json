@@ -13,7 +13,9 @@
   "dependencies": {
     "@types/p5": "1.7.0",
     "cross-env": "^7.0.3",
+    "d3-color": "^3.1.0",
     "p5": "1.7.0",
+    "random-seed": "^0.3.0",
     "vue": "^3.3.4",
     "vue-router": "^4.2.5"
   },

@@ -55,7 +55,7 @@
     "    background(220)",
     "    ellipse(50, 50, 80, 80)",
     "  }",
-    "  globalInit(draw)",
+    "  globalInit(draw, false)",
     "})",
     "",
     "</script>",

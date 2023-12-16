@@ -2,7 +2,7 @@
 import p5 from 'p5'
 import type global from 'node_modules/@types/p5/global.d.ts'
 import { onMounted } from 'vue'
-import globalInit from '@/globalUtils'
+import { globalInit } from '@/globalUtils'
 
 onMounted(() => {
 

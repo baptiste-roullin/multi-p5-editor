@@ -5,7 +5,7 @@ import { config, grid, star } from '../utils'
 import p5 from 'p5'
 import type global from 'node_modules/@types/p5/global.d.ts'
 
-import globalInit from '@/globalUtils'
+import { globalInit } from '@/globalUtils'
 
 
 function mandala(p5: p5.Graphics, itemSize: number) {
