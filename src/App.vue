@@ -1,6 +1,18 @@
+<script lang="ts">
+
+import { reactive } from 'vue'
+export const store = reactive<Record<string, any>>({})
+
+store.count = 0
+
+</script>
+
+
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import { cleanedList } from './utils'
+import log from './components/log.vue'
+
 
 </script>
 
@@ -15,6 +27,7 @@ import { cleanedList } from './utils'
   </header>
 
   <RouterView />
+  <log :foo="1"></log>
 </template>
 
 <style scoped>

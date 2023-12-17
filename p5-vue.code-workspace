@@ -7,12 +7,12 @@
 	"settings": {
 	"filewatcher.commands": [
 		{
-			"match": "\\.vue",
+			"match": "\\.vue$",
 			"cmd": "cd ${workspaceRoot} && bash new_files.sh",
 			"event": "onFileCreate"
 		},
 			{
-			"match": "\\.vue",
+			"match": "\\.vue$",
 			"cmd": "cd ${workspaceRoot} && bash new_files.sh",
 			"event": "onFolderDelete"
 		}

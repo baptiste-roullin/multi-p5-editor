@@ -3,6 +3,9 @@ import makeRandomGenerator from 'random-seed'
 import type global from 'node_modules/@types/p5/global.d.ts'
 
 import p5 from 'p5'
+import { store } from './App.vue'
+
+
 interface Params {
 	height: number
 	width: number
@@ -21,9 +24,7 @@ interface Params {
 	background_phase?: number
 	should_shuffle?: boolean
 	light?: number
-
 	//	[key: string]: string | number
-
 }
 
 /*function tableLog(array: (string | number)[]) {
@@ -107,7 +108,7 @@ export default async function truchet(params: Params) {
 		// scramble, shuffle et twist
 
 		for (let i = 1; i <= Math.floor(segments / 2); i++) {
-			console.log(i)
+			//console.log(i)
 
 			// We do this outside of the if for more stability.
 			const scrambled_X = (rScramble2.random() < 0.5 ? 0 : tile_size)
@@ -158,14 +159,13 @@ export default async function truchet(params: Params) {
 	// x et y sont soit à 0, soit à tile_size.
 	//définit le point d'origine du cercle parmi les quatre coints de la tile
 	function circle(i, x, y, flip) {
-
 		// Peut être à 1 ou 5
 		// définit les alternances de teinte entre chaque segment
 		const hue_flip = ((flip ? (segments - i) : i) / curves_per_circle)
 		const hue = hue_flip * hue_amplitude + hue_phase
 		const diameter = Math.floor((tile_size * i / segments) * 2)
 		tileCanvas.beginShape()
-		console.log("diameter", diameter, x, y)
+		//console.log("diameter", diameter, x, y)
 
 		tileCanvas.noFill()
 		tileCanvas.stroke("blue").strokeWeight(2)
@@ -215,10 +215,13 @@ export default async function truchet(params: Params) {
 
 			// COURBE
 			const curves = randomize_curves(tile_size)
-
 			for (let j = 0; j < curves.length; ++j) {
 				let [i, tx, ty] = curves[j]
 				const hue_should_flip = ((x + y + tx + ty) / tile_size) % 2
+
+				store["circleArgs-" + j] = {
+					"i": i, "tx": tx, "ty": ty, "hue_should_flip": hue_should_flip
+				}
 
 				circle(i, tx, ty, hue_should_flip)
 			}

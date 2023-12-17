@@ -9,7 +9,7 @@ const views = cleanedList.map((file, index) => {
     path: '/' + file,
     alias: (index === 0 ? '/' : '/' + file),
     name: file,
-    component: import(`../views/${file}.vue`)
+    component: () => import(`../views/${file}.vue`)
   }
 })
 const router = createRouter({
