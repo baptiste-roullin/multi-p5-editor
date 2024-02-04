@@ -1,45 +1,69 @@
 <script setup lang="ts">
-import p5 from 'p5'
-import type global from 'node_modules/@types/p5/global.d.ts'
 import { onMounted } from 'vue'
 import { globalInit, usefulHeight, usefulWidth } from '@/globalUtils'
+import record from '@/record'
+
 
 onMounted(() => {
 
+	console.log("mount")
+
 	function draw() {
+
 		background(2, 2, 2)
 		const dimension = Math.min(
 			usefulHeight,
 			usefulWidth,
 		)
 		fill(255)
-		//fill(0, 0, 0, 0)
-		stroke(255, 255, 255)
 
-		let sin = Math.sin(Date.now() / 5000)
-		let factor = sin * 10000
+		let tan = Math.tan(Date.now() / 1000)
+		let factor = tan * 300
 		arc(
 			//center point
 			usefulWidth / 2,
-			(usefulHeight / 2) - (factor / 2),
+			usefulHeight / 2 - factor / 2,
 			//dimensions
 			factor,
 			factor,
-			//border
+			//degrees of completion
 			0,
 			2 * Math.PI,
-			//mode
-
 		)
-
-
-		/*rect(usefulWidth / 2, usefulHeight / 2, 10, 10)
-		rect(usefulWidth / 2, usefulHeight - 5, 10, 10)*/
-
-
+		record_circle(tan)
 	}
 	globalInit(draw, true)
 })
+
+const event = new Event("cycled")
+var currentTan = 0
+var pastTan = 0
+var numberOfPhases = 0
+var recording: boolean = false
+
+
+function record_circle(trigFn) {
+	if (!currentTan) {
+		pastTan = 0
+	} {
+		pastTan = currentTan
+	}
+	currentTan = trigFn
+
+	if (currentTan < 0 && pastTan > 0) {
+		console.log(numberOfPhases)
+		numberOfPhases++
+
+	}
+	if (!recording) {
+		var mediaRecorder = record()
+		recording = true
+	}
+
+	if (numberOfPhases > 1) {
+		document.dispatchEvent(event)
+	}
+}
 
 </script>
 

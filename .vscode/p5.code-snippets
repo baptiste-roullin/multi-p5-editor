@@ -21,9 +21,8 @@
   "scope": "vue",
     "body": [
     "<script setup lang=\"ts\">",
-    "import p5 from 'p5'",
     "import { onMounted} from 'vue'",
-    "import { config } from '../utils'",
+    "import { globalInit, usefulHeight, usefulWidth } from '@/globalUtils'",
     "",
     "onMounted(() => {",
     "  const sketch = (p5: p5) => {",
@@ -44,10 +43,8 @@
   "prefix": "p5-global",
   "body": [
     "<script setup lang=\"ts\">",
-    "import p5 from 'p5'",
-    "import type global from 'node_modules/@types/p5/global.d.ts'",
     "import { onMounted } from 'vue'",
-    "import globalInit  from '@/globalUtils'",
+    "import { globalInit, usefulHeight, usefulWidth } from '@/globalUtils'",
     "",
     "onMounted(() => {",
     "",

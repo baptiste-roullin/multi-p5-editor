@@ -11,7 +11,6 @@ store.count = 0
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import { cleanedList } from './utils'
-import log from './components/log.vue'
 
 
 </script>
@@ -70,18 +69,15 @@ nav a.router-link-exact-active:hover {
 
 nav a {
   width: 100%;
-  font-weight: 600;
+  font-weight: 500;
   display: inline-block;
-  padding: 2rem 2.5rem;
+  padding: 1rem 1.5rem;
   ;
-  border-left: 1px solid var(--color-border);
   word-wrap: anywhere;
-  border: var(--vt-c-divider-dark-1) 1px solid;
+  border-bottom: var(--vt-c-divider-dark-1) 1px solid;
 }
 
-nav div:first-of-type a {
-  border: 0;
-}
+
 
 @media (min-width: 1024px) {
   header {
@@ -102,7 +98,7 @@ nav div:first-of-type a {
     flex-direction: column;
     gap: 0rem;
     text-align: left;
-    font-size: 1.4rem;
+    font-size: 1rem;
     margin-top: 0rem;
 
 

@@ -3,10 +3,10 @@ import type global from 'node_modules/@types/p5/global.d.ts'
 export const usefulWidth = window.innerWidth * .88
 export const usefulHeight = window.innerHeight * .90
 
-
-export function globalInit(draw, isLoop = true) {
+export function globalInit(draw: () => void, isLoop = true) {
 
 	function windowResized() {
+
 		resizeCanvas(usefulWidth, usefulHeight)
 	}
 
@@ -16,13 +16,15 @@ export function globalInit(draw, isLoop = true) {
 
 		//saveCanvas(cnv, 'myCanvas.jpg');
 
+
+
 		const setLoop = (isLoop ? loop : noLoop)
 		//must be the last line
 		setLoop()
+
 	}
 
-	//window['windowResized'] = null
-	//window['windowResized'] = windowResized
+	window['windowResized'] = windowResized
 	window['draw'] = null
 	window['draw'] = draw
 	window['setup'] = null

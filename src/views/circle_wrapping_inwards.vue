@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import p5 from 'p5'
-import type global from 'node_modules/@types/p5/global.d.ts'
 import { onMounted } from 'vue'
 import { globalInit, usefulHeight, usefulWidth } from '@/globalUtils'
-
+import record from '@/record'
 onMounted(() => {
 
 	function draw() {
@@ -32,15 +30,39 @@ onMounted(() => {
 
 		)
 
-
-		/*rect(usefulWidth / 2, usefulHeight / 2, 10, 10)
-		rect(usefulWidth / 2, usefulHeight - 5, 10, 10)*/
-
-
+		record_circle(tan)
 	}
 	globalInit(draw, true)
 })
 
+const event = new Event("cycled")
+var currentTan = 0
+var pastTan = 0
+var numberOfPhases = 0
+var recording: boolean = false
+
+function record_circle(trigFn) {
+	if (!currentTan) {
+		pastTan = 0
+	} {
+		pastTan = currentTan
+	}
+	currentTan = trigFn
+
+	if (currentTan < 0 && pastTan > 0) {
+		console.log(numberOfPhases)
+		numberOfPhases++
+
+	}
+	if (!recording) {
+		var mediaRecorder = record()
+		recording = true
+	}
+
+	if (numberOfPhases > 1) {
+		document.dispatchEvent(event)
+	}
+}
 </script>
 
 <template>
