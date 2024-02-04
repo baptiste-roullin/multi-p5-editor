@@ -1,7 +1,5 @@
 import p5 from 'p5'
 import type global from 'node_modules/@types/p5/global.d.ts'
-const width = window.innerWidth
-const height = window.innerHeight
 export const usefulWidth = window.innerWidth * .88
 export const usefulHeight = window.innerHeight * .90
 
@@ -14,8 +12,7 @@ export function globalInit(draw, isLoop = true) {
 
 	function setup() {
 		createCanvas(usefulWidth, usefulHeight, undefined, document.querySelector("canvas")!)
-		frameRate(10)
-
+		frameRate(60)
 
 		//saveCanvas(cnv, 'myCanvas.jpg');
 

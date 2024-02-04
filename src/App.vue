@@ -27,7 +27,8 @@ import log from './components/log.vue'
   </header>
 
   <RouterView />
-  <log :foo="1"></log>
+  <!--  <log :foo="1"></log>
+-->
 </template>
 
 <style scoped>
