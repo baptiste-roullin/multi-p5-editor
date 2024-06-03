@@ -1,7 +1,12 @@
 import p5 from 'p5'
 import type global from 'node_modules/@types/p5/global.d.ts'
+<<<<<<< Updated upstream
 export const usefulWidth = window.innerWidth * .88
 export const usefulHeight = window.innerHeight * .90
+=======
+export const viewWidth = window.innerWidth * .88
+export const viewHeight = window.innerHeight * .90
+>>>>>>> Stashed changes
 
 export function globalInit(draw: () => void, isLoop = true) {
 
@@ -15,8 +20,6 @@ export function globalInit(draw: () => void, isLoop = true) {
 		frameRate(60)
 
 		//saveCanvas(cnv, 'myCanvas.jpg');
-
-
 
 		const setLoop = (isLoop ? loop : noLoop)
 		//must be the last line

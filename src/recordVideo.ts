@@ -1,8 +1,9 @@
-// CREDITS TO
-// https://github.com/juliendecharentenay/medium-selfie-segmentation/blob/main/www/src/pages/demo/App.vue
 
 
-export default function record() {
+const type = "video/webm"
+//const type = "video/mp4; codecs='avc1.42E01E, mp4a.40.2'"
+
+export function record() {
 	console.log("Record canvas")
 	const canvas = document.querySelector("canvas")
 	if (canvas === null) { alert("no canvas found "); return }
@@ -12,7 +13,9 @@ export default function record() {
 
 
 	// Create media recorder from canvas stream
-	let media_recorder = new MediaRecorder(canvas_stream, { mimeType: "video/webm" })
+	let media_recorder = new MediaRecorder(canvas_stream, {
+		mimeType: type
+	})
 
 	// Record data in chunks array when data is available
 	media_recorder.ondataavailable = (evt) => { chunks.push(evt.data) }
@@ -42,7 +45,7 @@ export default function record() {
 function stop(chunks) {
 
 	// Gather chunks of video data into a blob and create an object URL
-	var blob = new Blob(chunks, { type: "video/webm" })
+	var blob = new Blob(chunks, { type: type })
 	const recording_url = URL.createObjectURL(blob)
 
 	// Attach the object URL to an <a> element, setting the download file name
@@ -60,4 +63,13 @@ function stop(chunks) {
 		URL.revokeObjectURL(recording_url)
 		document.body.removeChild(a)
 	}, 0)
+};
+
+export function recordAfter(s) {
+	record()
+	setTimeout(() => {
+		document.dispatchEvent(new Event("cycled"))
+
+	}, s * 1000)
 }
+
