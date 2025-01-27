@@ -1,3 +1,6 @@
+WARNING: VERY CRUDE, ABSOLUTELY UNFINISHED
+
+
 # A p5js editor in VS code
 
 A boilerplate project for a better p5js authoring experience. Basically it opens a Vue application in your browser and allows quick switching between sketches. New sketches (.vue files in the `views` folder) are automatically added to the navigation bar in Vue.
