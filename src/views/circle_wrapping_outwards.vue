@@ -1,12 +1,7 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
-<<<<<<< Updated upstream
-import { globalInit, usefulHeight, usefulWidth } from '@/globalUtils'
-import recordVideo from '@/recordVideo'
-=======
 import { globalInit, viewHeight, viewWidth } from '@/globalUtils'
 import { record } from '@/recordVideo'
->>>>>>> Stashed changes
 
 const event = new Event("cycled")
 var currentTan = 0

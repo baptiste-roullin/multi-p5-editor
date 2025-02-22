@@ -16,6 +16,12 @@ Motivation: There are other boilerplates out there, but they necessitate to dupl
 5. Run Vite.
 6. You can create .vue and use the snippet "p5".
 
+
+# How it works
+
+With
+
+
 # Global Mode
 
 If you prefer [global mode](https://github.com/processing/p5.js/wiki/Global-and-instance-mode) and its less verbose code, you can use it even with several sketches by executing `globalInit()`. It prevents namespace collisions (detected so far).

@@ -10,6 +10,10 @@
 			"match": "\\.vue$",
 			"cmd": "cd ${workspaceRoot} && bash new_files.sh",
 			"event": "onFileCreate"
+		},		{
+			"match": "\\.vue$",
+			"cmd": "cd ${workspaceRoot} && bash new_files.sh",
+			"event": "onFileDelete"
 		},
 			{
 			"match": "\\.vue$",

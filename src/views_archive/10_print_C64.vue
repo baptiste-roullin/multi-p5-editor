@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import p5 from 'p5'
 import { onMounted } from 'vue'
-import { config } from '../utils'
+import { config } from '../../utils'
 
 onMounted(() => {
 	const sketch = (p5: p5) => {
