@@ -3,10 +3,14 @@ import { RouterLink, RouterView } from 'vue-router'
 import { cleanedList } from './utils'
 
 import shellComponent from "@/views/shellComponent.vue"
+import { ref } from 'vue'
+
+
+
 </script>
 
 <template>
-  <header>
+  <!--  <header>
 
     <nav>
       <div v-for="(fileName, index) in cleanedList" :key="index" :id="String(fileName)">
@@ -16,9 +20,20 @@ import shellComponent from "@/views/shellComponent.vue"
   </header>
 
   <router-view v-slot="{ Component }">
-    <shellComponent :is="Component" />
-  </router-view> <!--  <log :foo="1"></log>
+    <shellComponent :is="Component" :fileName="fileName" />
+  </router-view>
 -->
+
+  <!--  <div>
+    <shellComponent v-for="(fileName, index) in fileList" :key="index" :id="String(fileName)" />
+  </div>
+-->
+
+  <Suspense>
+    <shellComponent :fileName="cleanedList[0]" />
+  </Suspense>
+
+
 </template>
 
 <style scoped>
