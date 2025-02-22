@@ -31,7 +31,7 @@ If you prefer [global mode](https://github.com/processing/p5.js/wiki/Global-and-
 
 # Warning
 
-This a work in progress. Especially, the live-reloading may be not cross-platform.
+This project is an experiment and everything is really rough around the edge. Especially, the live-reloading may be not cross-platform.
 
 Known limit: deletion of files is detected only if the deletion in done in the explorer sidebar in VS Code.
 
