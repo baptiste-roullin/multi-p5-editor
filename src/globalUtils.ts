@@ -1,5 +1,4 @@
 import p5 from 'p5'
-import type global from 'node_modules/@types/p5/global.d.ts'
 export const usefulWidth = window.innerWidth * .88
 export const usefulHeight = window.innerHeight * .90
 

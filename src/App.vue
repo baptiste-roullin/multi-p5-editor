@@ -1,32 +1,23 @@
-<script lang="ts">
-
-import { reactive } from 'vue'
-export const store = reactive<Record<string, any>>({})
-
-store.count = 0
-
-</script>
-
-
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import { cleanedList } from './utils'
 
-
+import shellComponent from "@/views/shellComponent.vue"
 </script>
 
 <template>
   <header>
 
     <nav>
-      <div v-for="(item, index) in cleanedList" :key="index" :id="String(item)">
-        <RouterLink :to="item">{{ item }}</RouterLink>
+      <div v-for="(fileName, index) in cleanedList" :key="index" :id="String(fileName)">
+        <RouterLink :to="fileName">{{ fileName }}</RouterLink>
       </div>
     </nav>
   </header>
 
-  <RouterView />
-  <!--  <log :foo="1"></log>
+  <router-view v-slot="{ Component }">
+    <shellComponent :is="Component" />
+  </router-view> <!--  <log :foo="1"></log>
 -->
 </template>
 

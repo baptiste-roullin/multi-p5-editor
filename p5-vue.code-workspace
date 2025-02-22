@@ -7,18 +7,24 @@
 	"settings": {
 	"filewatcher.commands": [
 		{
-			"match": "\\.vue$",
-			"cmd": "cd ${workspaceRoot} && bash new_files.sh",
+			"match": "\\.ts$",
+			"cmd": "cd ${workspaceRoot} && bash newFiles.sh",
 			"event": "onFileCreate"
 		},		{
-			"match": "\\.vue$",
-			"cmd": "cd ${workspaceRoot} && bash new_files.sh",
+			"match": "\\.ts$",
+			"cmd": "cd ${workspaceRoot} && bash newFiles.sh",
 			"event": "onFileDelete"
 		},
 			{
-			"match": "\\.vue$",
-			"cmd": "cd ${workspaceRoot} && bash new_files.sh",
+			"match": "\\.ts$",
+			"cmd": "cd ${workspaceRoot} && bash newFiles.sh",
 			"event": "onFolderDelete"
+		},
+		,
+			{
+			"match": "\\.ts$",
+			"cmd": "cd ${workspaceRoot} && bash newFiles.sh",
+			"event": "onFileRename"
 		}
 	]
 }

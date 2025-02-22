@@ -10,7 +10,7 @@ const usefulWidth = window.innerWidth * .88
 const userfulHeight = window.innerHeight * .90
 
 
-
+/* TODO: move in own file, clarify it's only for instance mode */
 export function config(p5: p5, noLoop = false) {
   p5.windowResized = () => {
     p5.resizeCanvas(usefulWidth, userfulHeight)
