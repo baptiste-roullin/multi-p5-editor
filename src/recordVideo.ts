@@ -3,7 +3,7 @@
 const type = "video/webm"
 //const type = "video/mp4; codecs='avc1.42E01E, mp4a.40.2'"
 
-export function record() {
+export function recordVideo() {
 	console.log("Record canvas")
 	const canvas = document.querySelector("canvas")
 	if (canvas === null) { alert("no canvas found "); return }

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import { globalInit, viewHeight, viewWidth } from '@/globalUtils'
-import { record } from '@/recordVideo'
+import { globalInit, usefulHeight, usefulWidth } from '@/globalUtils'
+import { recordVideo } from '@/recordVideo'
 
 const event = new Event("cycled")
 var currentTan = 0

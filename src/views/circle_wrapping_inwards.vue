@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
 import { globalInit, usefulHeight, usefulWidth } from '@/globalUtils'
-import recordVideo from '@/recordVideo'
+import { recordVideo } from '@/recordVideo'
 onMounted(() => {
 
 	const event = new Event("cycled")
