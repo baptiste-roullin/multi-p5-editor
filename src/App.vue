@@ -31,10 +31,6 @@ body {
   overflow: hidden;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
 
 nav {
   width: 100%;
@@ -46,23 +42,27 @@ nav {
 }
 
 nav a.router-link-exact-active {
-  color: var(--color-text);
-  font-weight: normal;
-  background: var(--vt-c-indigo);
+  color: var(--color-slate-50);
+  font-weight: 700;
+  background-color: var(--color-slate-800);
 }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+nav a:hover {
+  background-color: var(--color-slate-300);
+  color: var(--color-slate-800);
 }
+
 
 nav a {
+  text-decoration: none;
+  color: var(--color-slate-800);
+  transition: 0.4s;
   width: 100%;
   font-weight: 500;
   display: inline-block;
   padding: 1rem 1.5rem;
-  ;
   word-wrap: anywhere;
-  border-bottom: var(--vt-c-divider-dark-1) 1px solid;
+  border-bottom: var(--color-slate-500) 1px solid;
 }
 
 @media (min-width: 1024px) {
