@@ -13,7 +13,7 @@
   "dependencies": {
     "cross-env": "*",
     "d3-color": "*",
-    "p5": "*",
+    "p5": "^1.11.3",
     "random-seed": "*",
     "vue": "*",
     "vue-router": "*"

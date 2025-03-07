@@ -1,17 +1,14 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink } from 'vue-router'
 import { cleanedList } from './utils'
 
 import shellComponent from "@/views/shellComponent.vue"
-import { ref } from 'vue'
-
 
 
 </script>
 
 <template>
-  <!--  <header>
-
+  <header>
     <nav>
       <div v-for="(fileName, index) in cleanedList" :key="index" :id="String(fileName)">
         <RouterLink :to="fileName">{{ fileName }}</RouterLink>
@@ -19,21 +16,7 @@ import { ref } from 'vue'
     </nav>
   </header>
 
-  <router-view v-slot="{ Component }">
-    <shellComponent :is="Component" :fileName="fileName" />
-  </router-view>
--->
-
-  <!--  <div>
-    <shellComponent v-for="(fileName, index) in fileList" :key="index" :id="String(fileName)" />
-  </div>
--->
-
-  <Suspense>
-    <shellComponent :fileName="cleanedList[0]" />
-  </Suspense>
-
-
+  <shellComponent :fileName="cleanedList[0]" />
 </template>
 
 <style scoped>
