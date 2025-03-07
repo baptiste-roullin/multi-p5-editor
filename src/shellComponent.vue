@@ -11,7 +11,7 @@ const route = useRoute()
 
 async function initInsideComponent(fileName) {
   const name = String(fileName)
-  const { draw } = await import(`./p5/${name}.ts`)
+  const { draw } = await import(`../p5/${name}.ts`)
 
   globalInit(draw)
 }

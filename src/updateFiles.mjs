@@ -13,7 +13,7 @@ import path from 'node:path'
 	}
 
 	try {
-		const pathFile = process.cwd() + "/src/p5/"
+		const pathFile = process.cwd() + "/p5/"
 		writeList(pathFile)
 		const watcher = watch(pathFile)
 		for await (const event of watcher) {
