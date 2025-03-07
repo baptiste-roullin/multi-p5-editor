@@ -1,14 +1,12 @@
 {
-  "name": "p5-vue",
+  "name": "multi-p5-editor",
   "version": "0.1.0",
-  "private": true,
   "scripts": {
     "update-files": "node src/updateFiles.mjs",
     "dev": "vite",
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false"
   },
   "dependencies": {
-    "cross-env": "*",
     "d3-color": "*",
     "p5": "^1.11.3",
     "random-seed": "*",
@@ -21,7 +19,6 @@
     "@types/p5": "*",
     "@vitejs/plugin-vue": "*",
     "@vue/tsconfig": "*",
-    "npm-run-all2": "*",
     "typescript": "*",
     "vite": "*",
     "vue-tsc": "*"
