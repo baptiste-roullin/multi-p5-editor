@@ -1,10 +1,7 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
 import { cleanedList } from './utils'
-
-import shellComponent from "@/views/shellComponent.vue"
-
-
+import shellComponent from "@/shellComponent.vue"
 </script>
 
 <template>
@@ -16,7 +13,9 @@ import shellComponent from "@/views/shellComponent.vue"
     </nav>
   </header>
 
-  <shellComponent :fileName="cleanedList[0]" />
+  <main>
+    <shellComponent :fileName="cleanedList[0]" />
+  </main>
 </template>
 
 <style scoped>
@@ -66,8 +65,6 @@ nav a {
   border-bottom: var(--vt-c-divider-dark-1) 1px solid;
 }
 
-
-
 @media (min-width: 1024px) {
   header {
     display: flex;
@@ -81,7 +78,6 @@ nav a {
     margin: 0 2rem 0 0;
   }
 
-
   nav {
     display: flex;
     flex-direction: column;
@@ -89,8 +85,6 @@ nav a {
     text-align: left;
     font-size: 1rem;
     margin-top: 0rem;
-
-
   }
 }
 </style>

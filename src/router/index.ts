@@ -8,9 +8,9 @@ const router = createRouter({
   routes: cleanedList.map((file, index) => {
     return {
       path: '/' + file,
-      //alias: (index === 0 ? '/' : '/' + file),
+      alias: (index === 0 ? '/' : '/' + file),
       name: file,
-      component: () => import(`../views/shellComponent.vue`)
+      component: () => import(`../shellComponent.vue`)
     }
   })
 

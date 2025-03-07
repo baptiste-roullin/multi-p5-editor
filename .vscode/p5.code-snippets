@@ -16,52 +16,13 @@
 	// 	"description": "Log output to console"
 	// }
 
-"p5-vue instance template": {
+"p5-vue template": {
   "prefix": "p5",
   "scope": "vue",
     "body": [
-    "<script setup lang=\"ts\">",
-    "import { onMounted} from 'vue'",
-    "import { globalInit, usefulHeight, usefulWidth } from '@/globalUtils'",
-    "",
-    "onMounted(() => {",
-    "  const sketch = (p5: p5) => {",
-    "    config(p5, true)",
-    "    p5.draw = function () {",
-    "    $1}",
-    "  }",
-    "  new p5(sketch)",
-    "})",
-    "</script>",
-    "",
-    "<template><main><canvas></canvas></main></template>",
-    ""
+    "export function draw() {",
+    "  ",
+    "}"
   ],
   "description": ""
 },
-"p5-vue global template": {
-  "prefix": "p5-global",
-  "body": [
-    "<script setup lang=\"ts\">",
-    "import { onMounted } from 'vue'",
-    "import { globalInit, usefulHeight, usefulWidth } from '@/globalUtils'",
-    "",
-    "onMounted(() => {",
-    "",
-    "  function draw() {",
-    "    background(220)",
-    "    ellipse(50, 50, 80, 80)",
-    "  }",
-    "  globalInit(draw, false)",
-    "})",
-    "",
-    "</script>",
-    "",
-    "<template>",
-    "  <main><canvas></canvas></main>",
-    "</template>",
-    ""
-  ],
-  "description": ""
-}
-}

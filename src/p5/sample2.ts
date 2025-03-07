@@ -1,5 +1,4 @@
 export function draw() {
 	background(190)
-	ellipse(150, 50, 80, 80)
+	ellipse(150, 100, 80, 80)
 }
-

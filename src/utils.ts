@@ -9,24 +9,6 @@ const usefulWidth = window.innerWidth * .88
 const userfulHeight = window.innerHeight * .90
 
 
-/* TODO: move in own file, clarify it's only for instance mode */
-export function config(p5: p5, noLoop = false) {
-  p5.windowResized = () => {
-    p5.resizeCanvas(usefulWidth, userfulHeight)
-  }
-
-  p5.setup = () => {
-    if (window['draw'] || window['setup']) {
-      console.log('You launched a p5 sketch in instance mode, but another sketch in global has been detected. It could cause bugs and collisions between the too. ')
-    }
-    p5.createCanvas(usefulWidth, userfulHeight, undefined, document.querySelector("canvas")!)
-    p5.frameRate(60)
-    if (noLoop) {
-      p5.noLoop()
-    }
-  }
-}
-
 export function star(p5: p5, outerRadius, innerRadius, pointCount, x = 0, y = 0) {
   let angle = TWO_PI / pointCount
   let halfAngle = angle / 2.0

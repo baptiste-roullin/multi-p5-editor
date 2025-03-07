@@ -4,29 +4,8 @@
 			"path": "."
 		}
 	],
-	"settings": {
-	"filewatcher.commands": [
-		{
-			"match": "\\.ts$",
-			"cmd": "cd ${workspaceRoot} && bash newFiles.sh",
-			"event": "onFileCreate"
-		},		{
-			"match": "\\.ts$",
-			"cmd": "cd ${workspaceRoot} && bash newFiles.sh",
-			"event": "onFileDelete"
-		},
-			{
-			"match": "\\.ts$",
-			"cmd": "cd ${workspaceRoot} && bash newFiles.sh",
-			"event": "onFolderDelete"
-		},
-		,
-			{
-			"match": "\\.ts$",
-			"cmd": "cd ${workspaceRoot} && bash newFiles.sh",
-			"event": "onFileRename"
-		}
-	]
-}
+
+
+
 
 }
