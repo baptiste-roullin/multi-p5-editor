@@ -1,7 +1,6 @@
 {
-  "name": "p5-vue",
-  "version": "0.0.1",
-  "private": true,
+  "name": "p5-multi-editor",
+  "version": "0.1.0",
   "scripts": {
     "update-files": "bash new_files.sh",
     "dev": "vite",

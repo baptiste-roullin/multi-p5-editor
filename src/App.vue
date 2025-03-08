@@ -1,4 +1,9 @@
 <script setup lang="ts">
+//TODO: allow overriding setup function
+//TODO:  video and picture recording function. input variable to watch for looping
+// Logging function?
+// performance tests
+// cross-env tests
 import { RouterLink } from 'vue-router'
 import { cleanedList } from './utils'
 
@@ -20,18 +25,6 @@ import shellComponent from "@/views/shellComponent.vue"
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-body {
-  margin: 0;
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-}
-
 .logo {
   display: block;
   margin: 0 auto 2rem;
@@ -46,17 +39,11 @@ nav {
   overflow-y: scroll;
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
-  font-weight: normal;
-  background: var(--vt-c-indigo);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
 
 nav a {
+  text-decoration: none;
+  color: var(--color-slate-300);
+  transition: 0.4s;
   width: 100%;
   font-weight: 500;
   display: inline-block;
@@ -66,7 +53,16 @@ nav a {
   border-bottom: var(--vt-c-divider-dark-1) 1px solid;
 }
 
+nav a.router-link-exact-active {
+  color: var(--color-slate-200);
+  font-weight: 700;
+  background-color: var(--color-slate-800);
+}
 
+nav a:hover {
+  background-color: var(--color-slate-300);
+  color: var(--color-slate-800);
+}
 
 @media (min-width: 1024px) {
   header {

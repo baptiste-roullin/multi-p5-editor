@@ -2,22 +2,29 @@ export const usefulWidth = window.innerWidth * .88
 export const usefulHeight = window.innerHeight * .90
 import p5 from 'p5'
 
-export async function globalInit(draw, isLoop = true) {
+import files from './files.json'
 
-	function windowResized() {
-		resizeCanvas(usefulWidth, usefulHeight)
+export const cleanedList = files.filter(el => el !== "")
+
+
+function windowResized() {
+	resizeCanvas(usefulWidth, usefulHeight)
+}
+
+
+function fallbacksetup(isLoop) {
+	createCanvas(usefulWidth, usefulHeight, undefined, document.querySelector("canvas")!)
+	frameRate(60)
+	//saveCanvas(cnv, 'myCanvas.jpg');
+	const setLoop = (isLoop ? loop : noLoop)
+	//must be the last line
+	setLoop()
+}
+export async function globalInit(draw, setup, isLoop = true) {
+
+	if (!setup || typeof setup !== "function") {
+		setup = fallbacksetup
 	}
-
-	function setup() {
-		createCanvas(usefulWidth, usefulHeight, undefined, document.querySelector("canvas")!)
-		frameRate(60)
-		//saveCanvas(cnv, 'myCanvas.jpg');
-		const setLoop = (isLoop ? loop : noLoop)
-		//must be the last line
-		setLoop()
-	}
-
-
 
 
 	window['windowResized'] = windowResized

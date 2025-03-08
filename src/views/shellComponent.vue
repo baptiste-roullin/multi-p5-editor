@@ -1,24 +1,29 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
-import { globalInit } from '@/globalUtils'
-import { defineProps } from 'vue'
-import p5 from 'p5'
+import { onMounted, watch } from 'vue'
+import { useRoute } from 'vue-router'
 
-import type global from 'node_modules/@types/p5/global.d.ts'
 
 // important
+import type global from 'node_modules/@types/p5/global.d.ts'
 
-
-import { useRoute } from 'vue-router'
-import { watch } from 'vue'
+import { globalInit } from '@/globalUtils'
 
 const route = useRoute()
 
+async function initInsideComponent(fileName) {
 
-async function initInsideComponent(name) {
-  const path = `../p5/${String(name)}.ts`
-  const { draw } = await import(path)
-  globalInit(draw)
+  try {
+    const name = String(fileName)
+    const { draw } = await import(`../p5/${name}.ts`)
+    let { setup } = await import(`../p5/${name}.ts`)
+
+    globalInit(draw, setup)
+
+  } catch (error) {
+    console.log(error)
+
+
+  }
 }
 
 const props = defineProps(["fileName"])
