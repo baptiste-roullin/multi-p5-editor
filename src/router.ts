@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { cleanedList } from './globalUtils'
+import { cleanedList } from './cleanList'
 
 
 

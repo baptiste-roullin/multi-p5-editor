@@ -5,9 +5,9 @@
 // performance tests
 // cross-env tests
 import { RouterLink } from 'vue-router'
-import { cleanedList } from './utils'
+import { cleanedList } from './cleanList'
 
-import shellComponent from "@/views/shellComponent.vue"
+import shellComponent from "@/shellComponent.vue"
 
 
 </script>

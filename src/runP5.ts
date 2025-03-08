@@ -2,11 +2,6 @@ export const usefulWidth = window.innerWidth * .88
 export const usefulHeight = window.innerHeight * .90
 import p5 from 'p5'
 
-import files from './files.json'
-
-export const cleanedList = files.filter(el => el !== "")
-
-
 function windowResized() {
 	resizeCanvas(usefulWidth, usefulHeight)
 }
@@ -25,6 +20,7 @@ export async function globalInit(draw, setup, isLoop = true) {
 	if (!setup || typeof setup !== "function") {
 		setup = fallbacksetup
 	}
+
 
 
 	window['windowResized'] = windowResized

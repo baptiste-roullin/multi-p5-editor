@@ -6,12 +6,11 @@ import { useRoute } from 'vue-router'
 // important
 import type global from 'node_modules/@types/p5/global.d.ts'
 
-import { globalInit } from '@/globalUtils'
+import { globalInit } from '@/runP5'
 
 const route = useRoute()
 
 async function initInsideComponent(fileName) {
-
 	try {
 		const name = String(fileName)
 		const { draw } = await import(`../p5/${name}.ts`)
@@ -36,7 +35,7 @@ watch(
 
 
 onMounted(async () => {
-	initInsideComponent(props.fileName)
+	//initInsideComponent(props.fileName)
 })
 
 </script>
