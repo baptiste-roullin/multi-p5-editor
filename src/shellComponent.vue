@@ -12,35 +12,35 @@ const route = useRoute()
 
 async function initInsideComponent(fileName) {
 
-  try {
-    const name = String(fileName)
-    const { draw } = await import(`../p5/${name}.ts`)
-    let { setup } = await import(`../p5/${name}.ts`)
+	try {
+		const name = String(fileName)
+		const { draw } = await import(`../p5/${name}.ts`)
+		let { setup } = await import(`../p5/${name}.ts`)
 
-    globalInit(draw, setup)
+		globalInit(draw, setup)
 
-  } catch (error) {
-    console.log(error)
+	} catch (error) {
+		console.log(error)
 
 
-  }
+	}
 }
 
 const props = defineProps(["fileName"])
 watch(
-  () => route.name,
-  async name => {
-    initInsideComponent(name)
-  }
+	() => route.name,
+	async name => {
+		initInsideComponent(name)
+	}
 )
 
 
 onMounted(async () => {
-  initInsideComponent(props.fileName)
+	initInsideComponent(props.fileName)
 })
 
 </script>
 
 <template>
-  <canvas></canvas>
+	<canvas></canvas>
 </template>
